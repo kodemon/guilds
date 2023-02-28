@@ -1,0 +1,26 @@
+{
+  "extends": "@valkyr/typescript",
+  "compilerOptions": {
+    "lib": ["ES2022", "dom", "dom.iterable"],
+    "moduleResolution": "Node",
+    
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+
+    "esModuleInterop": false,
+
+    "paths": {
+      "~/Container": ["./src/Container.ts"],
+      "~Components/*": ["./src/Components/*"],
+      "~Libraries/*": ["./src/Libraries/*"],
+      "~Middleware/*": ["./src/Middleware/*"],
+      "~Modules/*": ["./src/Modules/*"],
+      "~Services/*": ["./src/Services/*"]
+    },
+
+    "outDir": "./dist"
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["dist"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
