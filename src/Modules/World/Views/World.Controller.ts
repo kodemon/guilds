@@ -3,12 +3,20 @@ import { fantastical } from "~Services/Fantastical";
 
 export class WorldController extends Controller<{
   guilds: string[];
+  taverns: string[];
 }> {
   async onInit() {
-    this.state.guilds = [];
+    this.setState({
+      guilds: [],
+      taverns: []
+    });
   }
 
   async addGuild() {
     this.state.guilds.push(await fantastical.getGuildName());
+  }
+
+  async addTavern() {
+    this.state.taverns.push(await fantastical.getTavernName());
   }
 }

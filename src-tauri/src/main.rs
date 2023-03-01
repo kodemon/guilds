@@ -11,9 +11,17 @@ fn generate_guild_name() -> String {
   return Fantastical::new().party.guild();
 }
 
+#[tauri::command]
+fn generate_tavern_name() -> String {
+  return Fantastical::new().place.tavern();
+}
+
 fn main() {
   tauri::Builder::default()
-    .invoke_handler(tauri::generate_handler![generate_guild_name])
+    .invoke_handler(tauri::generate_handler![
+      generate_guild_name,
+      generate_tavern_name
+    ])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }
